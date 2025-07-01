@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meine Offizielle Website</title>
+  <style>
+    :root {
+      --main-color: #0d47a1;
+      --bg-color: #000;
+      --text-color: #fff;
+      --accent-color: #1e88e5;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      color: var(--text-color);
+    }
+
+    body {
+      background-color: var(--bg-color);
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: var(--main-color);
+      padding: 20px;
+      text-align: center;
+      animation: fadeIn 2s ease-in;
+    }
+
+    header h1 {
+      font-size: 2em;
+    }
+
+    nav {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+
+    .menu-btn {
+      background: none;
+      border: 2px solid var(--accent-color);
+      padding: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      color: var(--text-color);
+    }
+
+    .menu {
+      display: none;
+      background: var(--main-color);
+      position: absolute;
+      top: 50px;
+      left: 0;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .menu a {
+      display: block;
+      margin: 10px 0;
+      text-decoration: none;
+      color: var(--text-color);
+    }
+
+    section {
+      padding: 30px;
+      animation: slideIn 1s ease-in;
+    }
+
+    button {
+      background-color: var(--accent-color);
+      border: none;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      color: white;
+    }
+
+    input {
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <div class="menu" id="menu">
+      <a href="#about">Über mich</a>
+      <a href="#whatsapp">WhatsApp Kanal</a>
+      <a href="#discord">Discord Server</a>
+      <a href="#youtube">YouTube Kanal</a>
+      <a href="#secret">Geheimer Ort</a>
+      <a href="#thanks">Danke</a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>👋 Willkommen auf meiner offiziellen Website!</h1>
+  </header>
+
+  <section id="about">
+    <h2>Über mich 📱</h2>
+    <p>Ich bin ein YouTuber und habe einen eigenen WhatsApp Kanal!</p>
+    <ul>
+      <li>Name: OtisPro</li>
+      <li>Content: Gaming, Spaß, Community</li>
+      <li>Plattformen: YouTube, WhatsApp, Discord</li>
+    </ul>
+  </section>
+
+  <section id="whatsapp">
+    <h2>WhatsApp Kanal 💬</h2>
+    <p>Hier geht's zum WhatsApp Kanal!</p>
+    <a href="https://whatsapp.com/channel/0029VaMYZUrBadmZqA5QNO1j" target="_blank"><button>WhatsApp Kanal öffnen</button></a>
+  </section>
+
+  <section id="discord">
+    <h2>Discord Server 🎮</h2>
+    <p>Hier geht's zum Discord Server!</p>
+    <a href="https://discord.gg/JWEHSHUS" target="_blank"><button>Discord öffnen</button></a>
+  </section>
+
+  <section id="youtube">
+    <h2>YouTube Kanal ▶️</h2>
+    <p>Hier geht's zum YouTube Kanal!</p>
+    <a href="https://youtube.com/@otispro?si=CFvUFBTNcsc61KzO" target="_blank"><button>YouTube öffnen</button></a>
+  </section>
+
+  <section id="secret">
+    <h2>🔒 Geheimer Ort</h2>
+    <input type="text" id="secretCode" placeholder="Code eingeben...">
+    <button onclick="checkCode()">Eingeben</button>
+    <div id="secretResult" class="hidden">
+      <p>🎉 Glückwunsch! Hier ist der geheime WhatsApp Kanal von mir!</p>
+      <a href="https://whatsapp.com/channel/0029VbB4OLDFi8xfwXwR8j1P" target="_blank"><button>Geheimer Kanal öffnen</button></a>
+    </div>
+  </section>
+
+  <section id="thanks">
+    <h2>Danke 🙏</h2>
+    <p>Ich danke allen aus meiner Community, ich bin einfach so happy, dass wir schon so viele sind! 🥳<br>
+    Ich bin einfach nur sprachlos, wie schnell wir wachsen, und ich weiß... Wir knacken safe die 1K Abos!</p>
+  </section>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function checkCode() {
+      const input = document.getElementById('secretCode').value;
+      const result = document.getElementById('secretResult');
+      if (input === '1010') {
+        result.classList.remove('hidden');
+      } else {
+        result.innerHTML = '<p>❌ Falscher Code! Versuchs nochmal.</p>';
+        result.classList.remove('hidden');
+      }
+    }
+  </script>
+</body>
+</html>
